@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>myTry</title>
+	<style>
+		#table{
+			margin: auto;
+			
+			height: 150px;
+			margin-top: 20px;
+			text-align: center;
+			font-size: 30px;
+			border-collapse: collapse;
+		}
+		#table tr td{
+			border: 1px solid #000;
+			padding: 0px 20px 0px 20px;
+		}
+		.first{
+			text-align: left;
+		}
+		
+		#obnovit{
+			
+			margin-left: 400px;
+			margin-top: 10px;
+			font-size: 20px;
+		}
+	</style>
+	
+	
+	<script>
+		
+		
+	window.onload = init;
+		
+	function init(){
+		var renew = document.getElementById("obnovit");
+		renew.onclick = handler;
+	}
+		
+	function handler(){
+		var tovar1 = ["ручки", "карандаши", "фламастеры", "линейки", "ластики"];
+		var tovar2 = ["ручки", "карандаши", "фламастеры", "линейки", "ластики"];
+		var prihod1 = [25, 19, 33, 46, 70];
+		var prihod2 = [17, 31, 33, 46, 70];
+		var kolvo1 = [3, 4, 2, 5, 7];
+		var kolvo2 = [5, 7, 3, 4, 2,];
+		
+		
+		var tovar3 = Math.floor(Math.random() * tovar1.length);
+		var tovar4 = Math.floor(Math.random() * tovar2.length);
+		var prihod3 = Math.floor(Math.random() * prihod1.length);
+		var prihod4 = Math.floor(Math.random() * prihod2.length);
+		
+		var kolvo3 = Math.floor(Math.random() * kolvo1.length);
+		var kolvo4 = Math.floor(Math.random() * kolvo2.length);
+		
+		var amountonsklad1 = document.getElementById("amountonsklad1");
+		var amountonsklad2 = document.getElementById("amountonsklad2");
+		amountonsklad1.innerHTML = kolvo1[kolvo3] + " штук";
+		amountonsklad2.innerHTML = kolvo2[kolvo4] + " штук";
+		var magic = kolvo1[kolvo3];
+		
+		
+		var tovar5 = document.getElementById("products1");
+		var tovar6 = document.getElementById("products2");
+		tovar5.innerHTML = tovar1[tovar3];
+		tovar6.innerHTML = tovar2[tovar4];
+		
+		
+		var prihod5 = document.getElementById("prihod1");
+		var prihod6 = document.getElementById("prihod2");
+		prihod5.innerHTML = prihod1[prihod3] + " руб.";
+		prihod6.innerHTML = prihod2[prihod4] + " руб.";
+		var magic2 = prihod1[prihod3];
+		var magic3 = prihod2[prihod4];
+		var oneUnit = document.getElementById("logist");
+		oneUnit.textContent = magic2 / magic;
+
+		var jackson;
+		var prihodNew = document.getElementById("prihodNew");
+		prihodNew.innerHTML = Math.floor(Math.random() * 20);
+		var amountNew = document.getElementById("amountNew");
+		amountNew.innerHTML = Math.floor(Math.random() * 5);
+		
+		
+		var itogo = document.getElementById("itogo");
+		itogo.innerHTML = (prihodNew.innerHTML = Math.floor(Math.random() * 20)) + magic2;
+		var priceForOne = document.getElementById("priceForOne");
+		console.log(prihodNew.innerHTML);
+		var itogoKolvo = document.getElementById("itogoKolvo");
+		itogoKolvo.innerHTML = (amountNew.innerHTML = Math.floor(Math.random() * 5)) + magic;
+		console.log(amountNew.innerHTML);
+		priceForOne.innerHTML = prihodNew.innerHTML / amountNew.innerHTML;
+		var middlePrice = document.getElementById("middlePrice");
+		middlePrice.innerHTML =  itogo.innerHTML / itogoKolvo.innerHTML;
+
+		var realizovano = document.getElementById("realizovano");
+		realizovano.innerHTML = Math.floor(Math.random() * 5);
+
+		var sebes = document.getElementById("sebes");
+		sebes.innerHTML = (itogo.innerHTML / itogoKolvo.innerHTML) * realizovano.innerHTML;
+
+		var procSebes = document.getElementById("procSebes");
+		procSebes.innerHTML = (20 / prihodNew.innerHTML) + (priceForOne.innerHTML = prihodNew.innerHTML / amountNew.innerHTML);
+
+		var tzrRealizovano = document.getElementById("tzrRealizovano");
+		tzrRealizovano.innerHTML = (20 / 100) * procSebes.innerHTML;
+
+		var theLast = document.getElementById("theLast");
+		theLast.innerHTML = tzrRealizovano.innerHTML / realizovano.innerHTML;
+
+
+}
+		
+	</script>
+</head>
+<body>
+	<button id="obnovit">
+		Обновить ассортимент
+	</button>
+	
+	<table id="table">
+		<tr id="product">
+			<td class="first">Остаток на начало периода</td>
+			<td id="products1">товар 1</td>
+			<td id="products2">товар 2</td>
+		</tr>
+		<tr id="four">
+			<td class="first">Руб.</td>
+			<td id="prihod1">00</td>
+			<td id="prihod2">00</td>
+		</tr>
+		<tr id="nine">
+			<td class="first">Кол-во</td>
+			<td id="amountonsklad1">00</td>
+			<td id="amountonsklad2">00</td>
+		</tr>
+		<tr id="two">
+			<td class="first">Цена за единицу товара (руб.)</td>
+			<td id="logist"></td>
+			<td id="logist2"></td>
+			
+		</tr>
+		<tr id="seven">
+			<td class="first"></td>
+			<td id="truckexpance1"></td>
+			<td id="truckexpance2"></td>
+		</tr>
+	</table>
+	<table id="table">
+		<th>За отчетный период - Приход</th>
+	<tr>
+		<td>Руб.</td>
+		<td id="prihodNew"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Кол-во</td>
+		<td id="amountNew"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Цена за единицу</td>
+		<td id="priceForOne"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="3">Итого наличие товара на момент реализации</td>
+		
+	</tr>
+	<tr>
+		<td>Руб.</td>
+		<td id="itogo"></td>
+		<td></td>
+		
+	</tr>
+	<tr>
+		<td>Кол-во</td>
+		<td id="itogoKolvo"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Средняя цена за единицу (руб.)</td>
+		<td id="middlePrice"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Реализовано</td>
+		<td id="realizovano"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Себестоимость реализации</td>
+		<td id="sebes"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ТЗР</td>
+		<td>20</td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td>% себестоимости товаров в общей сумме реализации</td>
+		<td id="procSebes"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ТЗР на реализованный товар</td>
+		<td id="tzrRealizovano"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ТЗР на единицу реализованного товара</td>
+		<td id="theLast"></td>
+		<td></td>
+	</tr>
+	
+		
+	</table>
+	
+</body>
+</html>
